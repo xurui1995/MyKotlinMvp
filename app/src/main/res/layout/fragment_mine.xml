@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/color_title_bg"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_title_bg">
+    <RelativeLayout
+        android:id="@+id/rel_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_about"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:src="@mipmap/ic_about"
+            android:layout_height="?attr/actionBarSize" />
+    </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="120dp"
+        android:layout_height="120dp">
+        <com.example.xr.mykotlinmvp.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="80dp"
+            android:src="@mipmap/img_avatar"
+            app:borderColor="@color/color_gray"
+            app:type="circle"
+            app:borderWidth="2dp"
+            android:layout_height="80dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"
+        android:text="1111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_view_homepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/color_gray"
+        android:text="查看个人主页>"/>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_collection"
+                android:text="收藏"
+                android:gravity="center"
+                android:drawablePadding="7dp"
+                android:drawableStart="@mipmap/ic_action_collection"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/color_gray"
+            />
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_comment"
+                android:text="评论"
+                android:gravity="center"
+                android:drawablePadding="7dp"
+                android:drawableStart="@mipmap/ic_action_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/color_gray" />
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textSize="14sp"
+                android:text="我的消息"
+                android:gravity="center"
+                android:id="@+id/tv_mine_message"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:textSize="14sp"
+                android:text="我的关注"
+                android:gravity="center"
+                android:id="@+id/tv_mine_attention"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <TextView
+                android:textSize="14sp"
+                android:text="我的缓存"
+                android:gravity="center"
+                android:id="@+id/tv_mine_cache"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:textSize="14sp"
+                android:text="观看记录"
+                android:gravity="center"
+                android:id="@+id/tv_watch_history"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:textSize="14sp"
+                android:text="意见反馈"
+                android:gravity="center"
+                android:id="@+id/tv_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

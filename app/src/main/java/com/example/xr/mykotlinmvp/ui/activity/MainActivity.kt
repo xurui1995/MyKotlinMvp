@@ -2,8 +2,11 @@ package com.example.xr.mykotlinmvp.ui.activity
 
 
 import android.os.Bundle
+import android.support.v4.app.FragmentTransaction
 import com.example.xr.mykotlinmvp.R
 import com.example.xr.mykotlinmvp.base.BaseActivity
+import com.example.xr.mykotlinmvp.ui.fragment.MineFragment
+import com.example.xr.mykotlinmvp.util.StatusBarUtil
 import com.example.xr.mykotlinmvp.widget.TabEntity
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
@@ -22,15 +25,16 @@ class MainActivity : BaseActivity() {
 
     private var mTabEntities = ArrayList<CustomTabEntity>()
 
+    private var mMineFragment: MineFragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         savedInstanceState?.let {
             mIndex = it.getInt("currTabIndex")
         }
         super.onCreate(savedInstanceState)
-
         initTab()
         tab_layout.currentTab = mIndex
-
+        switchFragment(mIndex)
 
     }
 
@@ -43,7 +47,7 @@ class MainActivity : BaseActivity() {
         tab_layout.setTabData(mTabEntities)
         tab_layout.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
-
+                switchFragment(position)
             }
 
             override fun onTabReselect(position: Int) {
@@ -52,9 +56,37 @@ class MainActivity : BaseActivity() {
         })
     }
 
+    private fun switchFragment(position: Int) {
+        with(supportFragmentManager.beginTransaction()) {
+            hideFragments(this)
+
+            when(position) {
+                0 -> {}
+                1 -> {}
+                2 -> {}
+                3 -> {
+                    mMineFragment?.let {
+                        this.show(it)
+                    }?:MineFragment.getInstance(mTitles[position]).let {
+                        mMineFragment = it
+                        this.add(R.id.fl_container, it, "mine")
+                    }
+                }
+            }
+
+            mIndex = position
+            tab_layout.currentTab = mIndex
+            this.commitAllowingStateLoss()
+        }
+    }
+
+    private fun hideFragments(fragmentTransaction: FragmentTransaction) {
+        mMineFragment?.let { fragmentTransaction.hide(it) }
+    }
+
 
     override fun initView() {
-
+        StatusBarUtil.darkMode(this)
     }
 
     override fun initData() {
